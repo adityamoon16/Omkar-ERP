@@ -67,8 +67,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       }
 
       if (storedUser) {
-        const user = JSON.parse(storedUser);
-        setCurrentUser(user);
+        setCurrentUser(JSON.parse(storedUser));
       }
     };
 
@@ -174,12 +173,13 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const login = async (email: string, password: string): Promise<boolean> => {
-    const user = users.find(
-      (u) => u.email === email && password === 'password'
-    );
+    // Find user by email
+    const user = users.find((u) => u.email === email);
     
     if (user) {
+      // For demo purposes, accept any password
       setCurrentUser(user);
+      localStorage.setItem('erp_currentUser', JSON.stringify(user));
       return true;
     }
     
