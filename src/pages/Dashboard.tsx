@@ -6,8 +6,6 @@ import {
   TrendingUp, 
   AlertTriangle, 
   Package, 
-  MoreHorizontal,
-  Users,
   ArrowUp,
   ArrowDown
 } from 'lucide-react';
@@ -16,7 +14,7 @@ import Button from '../components/ui/Button';
 import { useNavigate } from 'react-router-dom';
 
 const Dashboard: React.FC = () => {
-  const { products, sales, notifications } = useAppContext();
+  const { products, sales } = useAppContext();
   const navigate = useNavigate();
   
   // Calculate dashboard stats
